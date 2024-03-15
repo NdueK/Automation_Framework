@@ -1,6 +1,8 @@
 import { test } from "@playwright/test";
 import LoginPage from "../pages/LoginPage";
-import { log } from "console";
+import { encrypt, decrypt } from "../utils/CryptojsUtil";
+import { encryptEnvFile } from "../utils/EncryptEnvFile";
+
 
 test("test01", async({page})=>{ 
 
@@ -22,4 +24,9 @@ test("Simple env test", async({page})=>{
     console.log(process.env.userid);
     console.log(process.env.password);
     
+});
+
+test("Encrypted, Decrypted", async({page})=>{ 
+ 
+    encryptEnvFile();
 });
